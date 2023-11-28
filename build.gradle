@@ -1,8 +1,20 @@
+buildscript {
+	dependencies {
+		classpath 'com.h2database:h2:2.1.214'
+		classpath 'com.smartnews:jpa-entity-generator:0.99.8'
+	}
+}
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.1.4'
+	id 'org.springframework.boot' version '3.2.0'
 	id 'io.spring.dependency-management' version '1.1.3'
-	id "com.github.node-gradle.node" version "7.0.1"
+	id 'com.github.node-gradle.node' version '7.0.1'
+	id 'io.freefair.lombok' version '8.3'
+}
+
+apply plugin: 'entitygen'
+entityGen {
+	configPath = 'src/main/resources/entityGenConfig.yml'
 }
 
 group = 'com.bits.markoth'
@@ -75,12 +87,20 @@ repositories {
 }
 
 dependencies {
-//	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
+	implementation 'org.flywaydb:flyway-core'
+	implementation 'com.mysql:mysql-connector-j:8.2.0'
+	implementation 'org.flywaydb:flyway-mysql:8.4.4'
+	implementation 'com.h2database:h2:2.1.214'
+	implementation 'com.google.guava:guava:32.1.3-jre'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 tasks.named('test') {
+	systemProperty("spring.profiles.active", "dev")
 	useJUnitPlatform()
 }

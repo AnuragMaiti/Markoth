@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MarkothApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MarkothApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MarkothApplication.class, args);
+    }
 
 }
