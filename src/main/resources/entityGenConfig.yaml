@@ -1,0 +1,8 @@
+jdbcSettings:
+  url: jdbc:h2:file:/Users/ammaiti/work/POC/anurag/Markoth/db/markoth;MODE=MySQL;
+  username: sa
+  password:
+  driverClassName: org.h2.Driver
+
+packageName: com.bits.markoth.domain
+outputDirectory: src/main/java
