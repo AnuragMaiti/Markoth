@@ -12,4 +12,10 @@ public interface UserRepository extends JpaRepository<UserEntity,
         ListCrudRepository<UserEntity, Long> {
     //UserEntity findByEmail(String email);
     Optional<UserEntity> findByEmail(String email);
+
+    Optional<UserEntity> findByUsername(String username);
+
+    boolean existsByUsername(String username);
+
+    boolean existsByEmail(String email);
 }

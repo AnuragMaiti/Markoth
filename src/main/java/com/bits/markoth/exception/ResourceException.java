@@ -14,6 +14,10 @@ public class ResourceException extends RuntimeException {
         type = null;
     }
 
+    public ResourceException(String resourceInfo) {
+        resourceId = resourceInfo;
+        type = null;
+    }
     public ResourceException(String resourceId, Class type) {
         this.resourceId = resourceId;
         this.type = type;

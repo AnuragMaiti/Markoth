@@ -1,0 +1,34 @@
+
+
+.bgimg{
+    background-image: url(https://t4.ftcdn.net/jpg/04/29/97/39/360_F_429973962_6vMeg6RYgfFvKvBy6A2r8WlpOvFX9746.jpg) ;
+            margin: 100px 0;
+            padding: 0;
+            height: 60vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            /* Add transparency to the background color */
+            background-color: rgba(255, 255, 255, 0); 
+}
+
+.maintxt .welcome {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black; /* Set the text color */
+    font-size: 50px; /* Set the font size */
+    font-family: 'Arial', sans-serif; /* Set the font family */
+}
+
+.maintxt .description{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black; /* Set the text color */
+    font-size: 20px; /* Set the font size */
+    font-family: 'Arial', sans-serif; /* Set the font family */
+}
