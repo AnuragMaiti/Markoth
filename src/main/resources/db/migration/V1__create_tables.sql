@@ -2,7 +2,11 @@ create table users(
    id BIGINT NOT NULL AUTO_INCREMENT,
    username VARCHAR(100) NOT NULL,
    email VARCHAR(100) NOT NULL,
-   avatar_url VARCHAR(255) NOT NULL,
+   avatar_url VARCHAR(255),
+   full_name VARCHAR(255),
+   password VARCHAR(255) NOT NULL,
+   created_at TIMESTAMP,
+   updated_at TIMESTAMP,
    PRIMARY KEY (id)
 );
 
