@@ -30,7 +30,7 @@ public class UserService extends GenericService<UserEntity, Long> {
         return users;
     }
 
-    List<UserEntity> getUsers() {
+    public List<UserEntity> getUsers() {
         return userRepository.findAll();
     }
 

@@ -87,8 +87,9 @@ instance.interceptors.request.use(function (config) {
   if (config.headers.Authorization) {
     const token = config.headers.Authorization.split(' ')[1]
     const data = parseJwt(token)
-    if (Date.now() > data.exp * 1000) {
-      window.location.href = "/login"
+    // if (Date.now() > data.exp * 1000) {
+      if (false) {
+        window.location.href = "/login"
     }
   }
   return config

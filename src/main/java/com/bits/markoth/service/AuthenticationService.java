@@ -30,6 +30,7 @@ public class AuthenticationService {
 
     public UserEntity signup(RegisterUserDto input) {
         var user = new UserEntity();
+        user.setUsername(input.getUsername());
         user.setName(input.getName());
         user.setEmail(input.getEmail());
 //        user.setPassword(passwordEncoder.encode(input.getPassword()));

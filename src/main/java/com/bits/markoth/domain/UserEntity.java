@@ -25,17 +25,7 @@ import java.util.List;
 public class UserEntity implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator =
-            "hilopooled")
-    @GenericGenerator(name = "hilopooled", type =
-            org.hibernate.id.enhanced.SequenceStyleGenerator.class,
-            parameters = {
-                    @Parameter(name = "sequence_name", value =
-                            "hibernate_sequence"),
-                    @Parameter(name = "increment_size", value = "50"),
-                    @Parameter(name = "optimizer", value = "pooled")
-            }
-    )
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Getter
     @Setter
     private Long id;
@@ -60,7 +50,7 @@ public class UserEntity implements UserDetails {
 
     @Getter
     @Setter
-    private String role;
+    private String role = "ADMIN";
 
     @CreationTimestamp
     @Getter

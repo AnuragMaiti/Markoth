@@ -9,7 +9,8 @@ import { handleLogError } from '../misc/Helpers'
 function UserPage() {
   const Auth = useAuth()
   const user = Auth.getUser()
-  const isUser = user.data.rol[0] === 'USER'
+  // const isUser = user.data.rol[0] === 'USER'
+  const isUser = false
 
   const [userMe, setUserMe] = useState(null)
   const [isLoading, setIsLoading] = useState(false)

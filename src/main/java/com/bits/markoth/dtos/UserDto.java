@@ -1,26 +1,35 @@
 package com.bits.markoth.dtos;
 
-public class RegisterUserDto {
+import com.bits.markoth.domain.UserEntity;
+
+public class UserDto {
     private String email;
     private String password;
     private String username;
     private String name;
     private String role;
 
+    public UserDto(UserEntity user){
+        email=user.getEmail();
+        username=user.getUsername();
+        password=user.getPassword();
+        name=user.getName();
+        role=user.getRole();
+    }
     public String getEmail() {
         return email;
     }
 
-    public RegisterUserDto setEmail(String email) {
+    public UserDto setEmail(String email) {
         this.email = email;
         return this;
     }
 
-    public RegisterUserDto setUsername(String username) {
+    public UserDto setUsername(String username) {
         this.username = username;
         return this;
     }
-    public RegisterUserDto setRole(String role) {
+    public UserDto setRole(String role) {
         this.role = role;
         return this;
     }
@@ -30,7 +39,7 @@ public class RegisterUserDto {
         return password;
     }
 
-    public RegisterUserDto setPassword(String password) {
+    public UserDto setPassword(String password) {
         this.password = password;
         return this;
     }
@@ -46,7 +55,7 @@ public class RegisterUserDto {
         return role;
     }
 
-    public RegisterUserDto setName(String name) {
+    public UserDto setName(String name) {
         this.name = name;
         return this;
     }

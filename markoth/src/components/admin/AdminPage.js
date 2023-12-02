@@ -20,7 +20,7 @@ function AdminPage() {
   const [isOrdersLoading, setIsOrdersLoading] = useState(false)
 
   useEffect(() => {
-    setIsAdmin(user.data.rol[0] === 'ADMIN')
+    // setIsAdmin(user.data.rol[0] === 'ADMIN')
     setIsAdmin(true)
     handleGetUsers()
     handleGetOrders()
