@@ -1,0 +1,37 @@
+.cartHeading{
+    display:flex;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+
+.citem{
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+}
+
+.CartItem{
+    
+        border-radius:15px;
+        width:300px;
+        height: 350px;
+        margin:100px;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+}
+
+.CartItem img{
+    width: 400px;
+}
+
+.description{
+    text-align: center;
+}
+
+

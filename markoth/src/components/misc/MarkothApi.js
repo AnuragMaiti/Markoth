@@ -36,33 +36,33 @@ function numberOfOrders() {
 }
 
 function getUsers(user, username) {
-  const url = username ? `/api/users/${username}` : '/api/users'
+  const url = username ? `/markoth/users/${username}` : '/markoth/users'
   return instance.get(url, {
     headers: { 'Authorization': bearerAuth(user) }
   })
 }
 
 function deleteUser(user, username) {
-  return instance.delete(`/api/users/${username}`, {
+  return instance.delete(`/markoth/users/${username}`, {
     headers: { 'Authorization': bearerAuth(user), 'Access-Control-Allow-Headers': '*' }
   })
 }
 
 function getOrders(user, text) {
-  const url = text ? `/api/orders?text=${text}` : '/api/orders'
+  const url = text ? `/markoth/orders?text=${text}` : '/markoth/orders'
   return instance.get(url, {
     headers: { 'Authorization': bearerAuth(user) }
   })
 }
 
 function deleteOrder(user, orderId) {
-  return instance.delete(`/api/orders/${orderId}`, {
+  return instance.delete(`/markoth/orders/${orderId}`, {
     headers: { 'Authorization': bearerAuth(user) }
   })
 }
 
 function createOrder(user, order) {
-  return instance.post('/api/orders', order, {
+  return instance.post('/markoth/orders', order, {
     headers: {
       'Content-type': 'application/json',
       'Authorization': bearerAuth(user)
@@ -71,7 +71,7 @@ function createOrder(user, order) {
 }
 
 function getUserMe(user) {
-  return instance.get('/api/users/me', {
+  return instance.get('/markoth/users/me', {
     headers: { 'Authorization': bearerAuth(user) }
   })
 }

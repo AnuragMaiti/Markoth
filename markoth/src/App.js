@@ -8,6 +8,7 @@ import Login from './components/home/Login'
 import Signup from './components/home/Signup'
 import AdminPage from './components/admin/AdminPage'
 import UserPage from './components/user/UserPage'
+import Profile from './components/user/Profile'
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
           <Route path='/signup' element={<Signup />} />
           <Route path="/shop" element={<PrivateRoute><AdminPage /></PrivateRoute>} />
           <Route path="/cart" element={<PrivateRoute><UserPage /></PrivateRoute>} />
-          <Route path="/profile" element={<PrivateRoute><UserPage /></PrivateRoute>} />
+          <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>

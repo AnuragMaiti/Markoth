@@ -1,0 +1,57 @@
+/* .profile{
+    display:flex;
+    align-items: center;
+    transition: (0px,100px);
+    position: absolute;
+    height: 100%;
+}
+
+.dp img{
+    height: 100px;
+    margin: 200px;
+} */
+
+body {
+    background: white;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: rgb(83, 129, 67);
+}
+
+.profile-button {
+    background: rgb(83, 129, 67);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: rgb(83, 129, 67);
+}
+
+.profile-button:focus {
+    background: rgb(83, 129, 67);
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: rgb(83, 129, 67);
+    box-shadow: none
+}
+
+.back:hover {
+    color: rgb(83, 129, 67);
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.add-experience:hover {
+    background: rgb(83, 129, 67);
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px rgb(41, 88, 17)
+}
