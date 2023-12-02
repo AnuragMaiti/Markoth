@@ -61,6 +61,11 @@ public class UserController extends GenericController<UserEntity, Long> {
         return userMapper.toUserDto(userService.validateAndGetUserByUsername(username));
     }
 
+    @GetMapping("/count")
+    public Long getUsersCount() {
+        return userService.getUsersCount();
+    }
+
     @DeleteMapping("/{username}")
     public UserDto deleteUser(@PathVariable String username) {
         UserEntity user = userService.validateAndGetUserByUsername(username);

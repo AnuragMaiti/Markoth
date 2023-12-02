@@ -3,15 +3,15 @@ import { Grid, Table, Header, Icon } from 'semantic-ui-react'
 import OrderForm from '../misc/OrderForm'
 
 function OrderTable({ orders, orderDescription, handleInputChange, handleCreateOrder }) {
-  let orderList
+  let productList
   if (!orders || orders.length === 0) {
-    orderList = (
+    productList = (
       <Table.Row key='no-order'>
         <Table.Cell collapsing textAlign='center' colSpan='3'>No order</Table.Cell>
       </Table.Row>
     )
   } else {
-    orderList = orders.map(order => {
+    productList = orders.map(order => {
       return (
         <Table.Row key={order.id}>
           <Table.Cell>{order.id}</Table.Cell>
@@ -29,7 +29,7 @@ function OrderTable({ orders, orderDescription, handleInputChange, handleCreateO
           <Grid.Column width='3'>
             <Header as='h2'>
               <Icon name='laptop' />
-              <Header.Content>Orders</Header.Content>
+              <Header.Content>Search Bids</Header.Content>
             </Header>
           </Grid.Column>
           <Grid.Column>
@@ -45,13 +45,13 @@ function OrderTable({ orders, orderDescription, handleInputChange, handleCreateO
       <Table compact striped>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell width={5}>ID</Table.HeaderCell>
-            <Table.HeaderCell width={5}>Created At</Table.HeaderCell>
+            <Table.HeaderCell width={5}>Product Name</Table.HeaderCell>
+            <Table.HeaderCell width={5}>Initial Price</Table.HeaderCell>
             <Table.HeaderCell width={6}>Description</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {orderList}
+          {productList}
         </Table.Body>
       </Table>
     </>

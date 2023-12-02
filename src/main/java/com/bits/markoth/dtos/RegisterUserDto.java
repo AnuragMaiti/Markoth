@@ -5,6 +5,7 @@ public class RegisterUserDto {
     private String password;
     private String username;
     private String name;
+    private String phone;
     private String role;
 
     public String getEmail() {
@@ -13,6 +14,10 @@ public class RegisterUserDto {
 
     public RegisterUserDto setEmail(String email) {
         this.email = email;
+        return this;
+    }
+    public RegisterUserDto setPhone(String phone) {
+        this.phone = phone;
         return this;
     }
 
@@ -39,6 +44,10 @@ public class RegisterUserDto {
         return name;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -59,6 +68,7 @@ public class RegisterUserDto {
                 ", username='" + username + '\'' +
                 ", role='" + role + '\'' +
                 ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
                 '}';
     }
 }

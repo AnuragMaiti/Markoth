@@ -33,4 +33,8 @@ public class ProductService extends GenericService<ProductEntity, Long> {
         return repository.findByTitleContainingIgnoreCaseAndDescriptionContainingIgnoreCaseAndCategoryContainingIgnoreCase(title,
                 description, category);
     }
+
+    public Long getProductsCount() {
+        return repository.count();
+    }
 }

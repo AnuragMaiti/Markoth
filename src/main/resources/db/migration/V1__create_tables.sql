@@ -3,8 +3,9 @@ create table users(
    username VARCHAR(100) NOT NULL,
    email VARCHAR(100) NOT NULL,
    avatar_url VARCHAR(255),
-   role VARCHAR(255),
+   role VARCHAR(100),
    name VARCHAR(255),
+   phone VARCHAR(100),
    password VARCHAR(255) NOT NULL,
    created_at TIMESTAMP,
    updated_at TIMESTAMP,
@@ -14,18 +15,22 @@ create table users(
 
 create table product(
    id BIGINT NOT NULL AUTO_INCREMENT,
-   seller_id BIGINT NOT NULL,
+   seller_id BIGINT,
+   name VARCHAR(255),
    title VARCHAR(255),
    description VARCHAR(1024),
    attachments_url VARCHAR(1024),
    category VARCHAR(100),
    initial_bid DECIMAL(15,2),
+   increment DECIMAL(15,2),
    min_raise DECIMAL(15,2),
+   buy_now DECIMAL(15,2),
    autosell_price DECIMAL(15,2),
    start_at TIMESTAMP,
    end_at TIMESTAMP,
    PRIMARY KEY (id)
 );
+
 
 create table bid(
    id BIGINT NOT NULL AUTO_INCREMENT,

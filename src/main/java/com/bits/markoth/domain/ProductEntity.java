@@ -17,19 +17,8 @@ import java.sql.Date;
 @ToString
 @Entity(name = "product")
 public class ProductEntity {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator =
-            "hilopooled")
-    @GenericGenerator(name = "hilopooled", type =
-            org.hibernate.id.enhanced.SequenceStyleGenerator.class,
-            parameters = {
-                    @Parameter(name = "sequence_name", value =
-                            "hibernate_sequence"),
-                    @Parameter(name = "increment_size", value = "50"),
-                    @Parameter(name = "optimizer", value = "pooled")
-            }
-    )
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Getter
     @Setter
     private Long id;
@@ -63,4 +52,14 @@ public class ProductEntity {
     @Getter
     @Setter
     private Date endAt;
+
+    @Getter
+    @Setter
+    private String name;
+    @Getter
+    @Setter
+    private Double increment;
+    @Getter
+    @Setter
+    private Double buyNow;
 }

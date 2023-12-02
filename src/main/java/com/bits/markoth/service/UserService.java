@@ -34,6 +34,10 @@ public class UserService extends GenericService<UserEntity, Long> {
         return userRepository.findAll();
     }
 
+    public Long getUsersCount() {
+        return userRepository.count();
+    }
+
     public Optional<UserEntity> getUserByUsername(String username) {
         return userRepository.findByUsername(username);
     }

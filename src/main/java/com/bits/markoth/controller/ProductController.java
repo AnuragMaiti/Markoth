@@ -34,5 +34,10 @@ public class ProductController extends GenericController<ProductEntity, Long> {
         return products;
     }
 
+    @GetMapping("/count")
+    public Long getProductsCount() {
+        return productService.getProductsCount();
+    }
+
 
 }

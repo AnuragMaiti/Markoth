@@ -16,11 +16,6 @@ const profile = () => {
                         <div class="row mt-2">
                             <div class="col-md-6"><label class="labels">Name</label>
                                 {/* <input type="text" class="form-control" placeholder="first name" value="" /> */}
-
-                            </div>
-                            <div class="col-md-6"><label class="labels">Surname</label>
-                                {/* <input type="text" class="form-control" value="" placeholder="surname" /> */}
-
                             </div>
                         </div>
                         <div class="row mt-3">
@@ -33,7 +28,7 @@ const profile = () => {
                         </div>
 
                     </div>
-                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Edit Profile</button></div>
                 </div>
             </div>
         </div>

@@ -7,6 +7,7 @@ public class UserDto {
     private String password;
     private String username;
     private String name;
+    private String phone;
     private String role;
 
     public UserDto(UserEntity user){
@@ -14,6 +15,7 @@ public class UserDto {
         username=user.getUsername();
         password=user.getPassword();
         name=user.getName();
+        phone=user.getPhone();
         role=user.getRole();
     }
     public String getEmail() {
@@ -22,6 +24,10 @@ public class UserDto {
 
     public UserDto setEmail(String email) {
         this.email = email;
+        return this;
+    }
+    public UserDto setPhone(String phone) {
+        this.phone = phone;
         return this;
     }
 
@@ -34,7 +40,6 @@ public class UserDto {
         return this;
     }
 
-
     public String getPassword() {
         return password;
     }
@@ -46,6 +51,10 @@ public class UserDto {
 
     public String getName() {
         return name;
+    }
+
+    public String getPhone() {
+        return phone;
     }
 
     public String getUsername() {

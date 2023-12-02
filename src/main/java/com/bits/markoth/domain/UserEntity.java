@@ -46,6 +46,10 @@ public class UserEntity implements UserDetails {
 
     @Getter
     @Setter
+    private String phone;
+
+    @Getter
+    @Setter
     private String password;
 
     @Getter

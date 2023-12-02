@@ -4,9 +4,12 @@ import com.bits.markoth.dtos.LoginUserDto;
 import com.bits.markoth.dtos.RegisterUserDto;
 import com.bits.markoth.domain.UserEntity;
 import com.bits.markoth.responses.LoginResponse;
+import com.bits.markoth.security.CustomUserDetails;
 import com.bits.markoth.service.AuthenticationService;
 import com.bits.markoth.service.JwtService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/auth")
@@ -24,18 +27,14 @@ public class AuthenticationController {
     @PostMapping("/signup")
     public ResponseEntity<UserEntity> register(@RequestBody RegisterUserDto registerUserDto) {
         UserEntity registeredUser = authenticationService.signup(registerUserDto);
-
         return ResponseEntity.ok(registeredUser);
     }
 
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> authenticate(@RequestBody LoginUserDto loginUserDto) {
-        UserEntity authenticatedUser = authenticationService.authenticate(loginUserDto);
-
-        String jwtToken = jwtService.generateToken(authenticatedUser);
-
+        Authentication authentication = authenticationService.authenticate(loginUserDto);
+        String jwtToken = jwtService.generate(authentication);
         LoginResponse loginResponse = new LoginResponse().setToken(jwtToken).setExpiresIn(jwtService.getExpirationTime());
-
         return ResponseEntity.ok(loginResponse);
     }
 }

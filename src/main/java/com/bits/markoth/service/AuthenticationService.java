@@ -4,8 +4,11 @@ import com.bits.markoth.dtos.LoginUserDto;
 import com.bits.markoth.dtos.RegisterUserDto;
 import com.bits.markoth.domain.UserEntity;
 import com.bits.markoth.repository.UserRepository;
+import com.bits.markoth.security.CustomUserDetails;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -39,14 +42,15 @@ public class AuthenticationService {
         return userRepository.save(user);
     }
 
-    public UserEntity authenticate(LoginUserDto input) {
-        authenticationManager.authenticate(
+    public Authentication authenticate(LoginUserDto input) {
+        Authentication auth = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         input.getUsername(),
                         input.getPassword()
                 )
         );
-        return userRepository.findByUsernameAndPassword(input.getUsername(), input.getPassword()).orElseThrow();
+        return auth;
+//        return userRepository.findByUsernameAndPassword(input.getUsername(), input.getPassword()).orElseThrow();
     }
 
     public List<UserEntity> allUsers() {

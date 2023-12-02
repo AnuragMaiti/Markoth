@@ -10,7 +10,7 @@ const Shop = () => {
             
             <div className="shop">
                 <div className="shoptitle">
-                    <h1>Shop</h1>
+                    <h1>Bids</h1>
                 </div>
                 <div className="product">
                     {PRODUCTS.map((item) => (

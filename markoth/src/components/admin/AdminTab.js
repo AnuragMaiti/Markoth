@@ -24,7 +24,7 @@ function AdminTab(props) {
       )
     },
     {
-      menuItem: { key: 'orders', icon: 'laptop', content: 'Orders' },
+      menuItem: { key: 'orders', icon: 'laptop', content: 'Search Bids' },
       render: () => (
         <Tab.Pane loading={isOrdersLoading}>
           <OrderTable

@@ -16,17 +16,7 @@ import java.sql.Date;
 public class BidEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator =
-            "hilopooled")
-    @GenericGenerator(name = "hilopooled", type =
-            org.hibernate.id.enhanced.SequenceStyleGenerator.class,
-            parameters = {
-                    @Parameter(name = "sequence_name", value =
-                            "hibernate_sequence"),
-                    @Parameter(name = "increment_size", value = "50"),
-                    @Parameter(name = "optimizer", value = "pooled")
-            }
-    )
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Getter
     @Setter
     private Long id;

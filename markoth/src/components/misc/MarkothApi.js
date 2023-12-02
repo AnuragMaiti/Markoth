@@ -28,11 +28,11 @@ function signup(user) {
 }
 
 function numberOfUsers() {
-  return instance.get('/public/numberOfUsers')
+  return instance.get('/markoth/users/count')
 }
 
 function numberOfOrders() {
-  return instance.get('/public/numberOfOrders')
+  return instance.get('/markoth/products/count')
 }
 
 function getUsers(user, username) {
@@ -42,6 +42,14 @@ function getUsers(user, username) {
   })
 }
 
+function getUser(user, username) {
+  const url = username ? `/markoth/users?username=${user.username}` : '/markoth/users'
+  return instance.get(url, {
+    headers: { 'Authorization': bearerAuth(user) }
+  })
+}
+
+
 function deleteUser(user, username) {
   return instance.delete(`/markoth/users/${username}`, {
     headers: { 'Authorization': bearerAuth(user), 'Access-Control-Allow-Headers': '*' }
@@ -49,7 +57,7 @@ function deleteUser(user, username) {
 }
 
 function getOrders(user, text) {
-  const url = text ? `/markoth/orders?text=${text}` : '/markoth/orders'
+  const url = '/markoth/products'
   return instance.get(url, {
     headers: { 'Authorization': bearerAuth(user) }
   })

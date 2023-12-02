@@ -41,8 +41,8 @@ function Navbar() {
       <Container>
         <Menu.Item header>Markoth</Menu.Item>
         <Menu.Item as={Link} exact='true' to="/">Home</Menu.Item>
-        <Menu.Item as={Link} to="/shop" style={adminPageStyle()}>Shop</Menu.Item>
-        <Menu.Item as={Link} to="/cart" style={userPageStyle()}>Cart</Menu.Item>
+        <Menu.Item as={Link} to="/shop" style={adminPageStyle()}>Bids</Menu.Item>
+        <Menu.Item as={Link} to="/cart" style={userPageStyle()}>Chat</Menu.Item>
         <Menu.Item as={Link} to="/profile" style={userPageStyle()}>Profile</Menu.Item>
         <Menu.Menu position='right'>
           <Menu.Item as={Link} to="/login" style={enterMenuStyle()}>Login</Menu.Item>
