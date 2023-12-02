@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Statistic, Icon, Grid, Container, Image, Segment, Dimmer, Loader } from 'semantic-ui-react'
-import { orderApi } from '../misc/OrderApi'
+import { markothApi } from '../misc/MarkothApi'
 import { handleLogError } from '../misc/Helpers'
 import './Home.css';
 
@@ -12,10 +12,10 @@ function Home() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const responseUsers = await orderApi.numberOfUsers()
+        const responseUsers = await markothApi.numberOfUsers()
         const numberOfUsers = responseUsers.data
 
-        const responseOrders = await orderApi.numberOfOrders()
+        const responseOrders = await markothApi.numberOfOrders()
         const numberOfOrders = responseOrders.data
 
         setNumberOfUsers(numberOfUsers)

@@ -2,7 +2,7 @@ import axios from 'axios'
 import { config } from '../../Constants'
 import { parseJwt } from './Helpers'
 
-export const orderApi = {
+export const markothApi = {
   authenticate,
   signup,
   numberOfUsers,
@@ -16,7 +16,7 @@ export const orderApi = {
 }
 
 function authenticate(username, password) {
-  return instance.post('/auth/authenticate', { username, password }, {
+  return instance.post('/auth/login', { username, password }, {
     headers: { 'Content-type': 'application/json' }
   })
 }
@@ -44,7 +44,7 @@ function getUsers(user, username) {
 
 function deleteUser(user, username) {
   return instance.delete(`/api/users/${username}`, {
-    headers: { 'Authorization': bearerAuth(user) }
+    headers: { 'Authorization': bearerAuth(user), 'Access-Control-Allow-Headers': '*' }
   })
 }
 

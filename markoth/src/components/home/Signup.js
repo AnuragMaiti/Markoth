@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { NavLink, Navigate } from 'react-router-dom'
 import { Button, Form, Grid, Segment, Message } from 'semantic-ui-react'
 import { useAuth } from '../context/AuthContext'
-import { orderApi } from '../misc/OrderApi'
+import { markothApi } from '../misc/MarkothApi'
 import { parseJwt, handleLogError } from '../misc/Helpers'
 
 function Signup() {
@@ -40,7 +40,7 @@ function Signup() {
     const user = { username, password, name, email }
 
     try {
-      const response = await orderApi.signup(user)
+      const response = await markothApi.signup(user)
       const { accessToken } = response.data
       const data = parseJwt(accessToken)
       const authenticatedUser = { data, accessToken }

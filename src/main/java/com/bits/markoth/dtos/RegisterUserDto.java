@@ -3,7 +3,9 @@ package com.bits.markoth.dtos;
 public class RegisterUserDto {
     private String email;
     private String password;
-    private String fullName;
+    private String username;
+    private String name;
+    private String role;
 
     public String getEmail() {
         return email;
@@ -14,6 +16,16 @@ public class RegisterUserDto {
         return this;
     }
 
+    public RegisterUserDto setUsername(String username) {
+        this.email = username;
+        return this;
+    }
+    public RegisterUserDto setRole(String role) {
+        this.email = role;
+        return this;
+    }
+
+
     public String getPassword() {
         return password;
     }
@@ -23,12 +35,19 @@ public class RegisterUserDto {
         return this;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getName() {
+        return name;
     }
 
-    public RegisterUserDto setFullName(String fullName) {
-        this.fullName = fullName;
+    public String getUsername() {
+        return username;
+    }
+    public String getRole() {
+        return role;
+    }
+
+    public RegisterUserDto setName(String name) {
+        this.name = name;
         return this;
     }
 
@@ -37,7 +56,9 @@ public class RegisterUserDto {
         return "RegisterUserDto{" +
                 "email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", fullName='" + fullName + '\'' +
+                ", username='" + username + '\'' +
+                ", role='" + role + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 }

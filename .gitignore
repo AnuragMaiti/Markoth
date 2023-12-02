@@ -6,7 +6,9 @@ build/
 !**/src/test/**/build/
 markoth/node_modules/
 markoth/build
-
+target/
+markoth/build/
+markoth/node/
 ### STS ###
 .apt_generated
 .classpath

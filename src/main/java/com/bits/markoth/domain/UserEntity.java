@@ -52,11 +52,15 @@ public class UserEntity implements UserDetails {
 
     @Getter
     @Setter
-    private String fullName;
+    private String name;
 
     @Getter
     @Setter
     private String password;
+
+    @Getter
+    @Setter
+    private String role;
 
     @CreationTimestamp
     @Getter
@@ -91,18 +95,6 @@ public class UserEntity implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", fullName='" + fullName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                '}';
     }
 
 }

@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom'
 import { Container } from 'semantic-ui-react'
 import { useAuth } from '../context/AuthContext'
 import AdminTab from './AdminTab'
-import { orderApi } from '../misc/OrderApi'
+import { markothApi } from '../misc/MarkothApi'
 import { handleLogError } from '../misc/Helpers'
 
 function AdminPage() {
@@ -21,6 +21,7 @@ function AdminPage() {
 
   useEffect(() => {
     setIsAdmin(user.data.rol[0] === 'ADMIN')
+    setIsAdmin(true)
     handleGetUsers()
     handleGetOrders()
   }, [])
@@ -38,7 +39,7 @@ function AdminPage() {
   const handleGetUsers = async () => {
     setIsUsersLoading(true)
     try {
-      const response = await orderApi.getUsers(user)
+      const response = await markothApi.getUsers(user)
       setUsers(response.data)
     } catch (error) {
       handleLogError(error)
@@ -49,7 +50,7 @@ function AdminPage() {
 
   const handleDeleteUser = async (username) => {
     try {
-      await orderApi.deleteUser(user, username)
+      await markothApi.deleteUser(user, username)
       handleGetUsers()
     } catch (error) {
       handleLogError(error)
@@ -59,7 +60,7 @@ function AdminPage() {
   const handleSearchUser = async () => {
     const username = userUsernameSearch
     try {
-      const response = await orderApi.getUsers(user, username)
+      const response = await markothApi.getUsers(user, username)
       const data = response.data
       const users = data instanceof Array ? data : [data]
       setUsers(users)
@@ -72,7 +73,7 @@ function AdminPage() {
   const handleGetOrders = async () => {
     setIsOrdersLoading(true)
     try {
-      const response = await orderApi.getOrders(user)
+      const response = await markothApi.getOrders(user)
       setOrders(response.data)
     } catch (error) {
       handleLogError(error)
@@ -83,7 +84,7 @@ function AdminPage() {
 
   const handleDeleteOrder = async (isbn) => {
     try {
-      await orderApi.deleteOrder(user, isbn)
+      await markothApi.deleteOrder(user, isbn)
       handleGetOrders()
     } catch (error) {
       handleLogError(error)
@@ -98,7 +99,7 @@ function AdminPage() {
 
     const order = { description }
     try {
-      await orderApi.createOrder(user, order)
+      await markothApi.createOrder(user, order)
       handleGetOrders()
       setOrderDescription('')
     } catch (error) {
@@ -109,7 +110,7 @@ function AdminPage() {
   const handleSearchOrder = async () => {
     const text = orderTextSearch
     try {
-      const response = await orderApi.getOrders(user, text)
+      const response = await markothApi.getOrders(user, text)
       setOrders(response.data)
     } catch (error) {
       handleLogError(error)

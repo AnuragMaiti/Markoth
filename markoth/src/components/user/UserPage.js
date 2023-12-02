@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom'
 import { Container } from 'semantic-ui-react'
 import OrderTable from './OrderTable'
 import { useAuth } from '../context/AuthContext'
-import { orderApi } from '../misc/OrderApi'
+import { markothApi } from '../misc/MarkothApi'
 import { handleLogError } from '../misc/Helpers'
 
 function UserPage() {
@@ -20,7 +20,7 @@ function UserPage() {
       setIsLoading(true)
 
       try {
-        const response = await orderApi.getUserMe(user)
+        const response = await markothApi.getUserMe(user)
         setUserMe(response.data)
       } catch (error) {
         handleLogError(error)
@@ -46,7 +46,7 @@ function UserPage() {
 
     const order = { description: trimmedDescription }
     try {
-      await orderApi.createOrder(user, order)
+      await markothApi.createOrder(user, order)
       await fetchUserMeData()
       setOrderDescription('')
     } catch (error) {
@@ -58,7 +58,7 @@ function UserPage() {
     setIsLoading(true)
 
     try {
-      const response = await orderApi.getUserMe(user)
+      const response = await markothApi.getUserMe(user)
       setUserMe(response.data)
     } catch (error) {
       handleLogError(error)

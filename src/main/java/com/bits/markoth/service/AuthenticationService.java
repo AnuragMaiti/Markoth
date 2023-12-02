@@ -30,9 +30,10 @@ public class AuthenticationService {
 
     public UserEntity signup(RegisterUserDto input) {
         var user = new UserEntity();
-        user.setFullName(input.getFullName());
+        user.setName(input.getName());
         user.setEmail(input.getEmail());
-        user.setPassword(passwordEncoder.encode(input.getPassword()));
+//        user.setPassword(passwordEncoder.encode(input.getPassword()));
+        user.setPassword(input.getPassword());
 
         return userRepository.save(user);
     }
@@ -40,12 +41,11 @@ public class AuthenticationService {
     public UserEntity authenticate(LoginUserDto input) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        input.getEmail(),
+                        input.getUsername(),
                         input.getPassword()
                 )
         );
-
-        return userRepository.findByEmail(input.getEmail()).orElseThrow();
+        return userRepository.findByUsernameAndPassword(input.getUsername(), input.getPassword()).orElseThrow();
     }
 
     public List<UserEntity> allUsers() {

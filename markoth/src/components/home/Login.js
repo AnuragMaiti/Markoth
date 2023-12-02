@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { NavLink, Navigate } from 'react-router-dom'
 import { Button, Form, Grid, Segment, Message } from 'semantic-ui-react'
 import { useAuth } from '../context/AuthContext'
-import { orderApi } from '../misc/OrderApi'
+import { markothApi } from '../misc/MarkothApi'
 import { parseJwt, handleLogError } from '../misc/Helpers'
 
 function Login() {
@@ -30,7 +30,7 @@ function Login() {
     }
 
     try {
-      const response = await orderApi.authenticate(username, password)
+      const response = await markothApi.authenticate(username, password)
       const { accessToken } = response.data
       const data = parseJwt(accessToken)
       const authenticatedUser = { data, accessToken }
@@ -47,7 +47,7 @@ function Login() {
   }
 
   if (isLoggedIn) {
-    return <Navigate to={'/'} />
+    return <Navigate to={'/Home'} />
   }
 
   return (
